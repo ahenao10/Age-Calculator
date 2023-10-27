@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Age Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-info">
+                <form>
+                    <div class="date form-day">
+                        <h1 id="h1-day">Day</h1>
+                        <input id="input-day" placeholder="DD" type="number">
+                        <p class="alert" id="alert-day"></p>
+                    </div>
+                    <div class="date form-month">
+                        <h1 id="h1-month">Month</h1>
+                        <input id="input-month" placeholder="MM" type="number">
+                        <p class="alert" id="alert-month"></p>
+                    </div>
+                    <div class="date form-year">
+                        <h1 id="h1-year">Year</h1>
+                        <input id="input-year" placeholder="YYYY" type="number">
+                        <p class="alert" id="alert-year"></p>  
+                    </div>
+                </form>
+                <div class="arrow-separator">
+                    <button class="arrow">
+                        <img src="./assets/images/icon-arrow.svg" alt="" srcset="">
+                    </button>
+                    <div class="line"></div>
+                </div>
+                <aside class="age-info">
+                    <div class="values-age">
+                        <span id="year-result">- -</span>
+                        <p>years</p>
+                    </div>
+                    <div class="values-age">
+                        <span id="month-result">- -</span>
+                        <p>months</p>
+                    </div>
+                    <div class="values-age">
+                        <span id="day-result">- -</span>
+                        <p>days</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
