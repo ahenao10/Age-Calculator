@@ -127,9 +127,21 @@ document.querySelector('.arrow').addEventListener('click', () => {
                 resYear--;
             }
 
-                resultYear.innerText = resYear;
-                resultMonth.innerText = resMonth;
-                resultDay.innerText = resDay;
+            dayInput.style.border = '';
+            alertDay.innerText = '';
+            h1Day.style.color = '';
+
+            monthInput.style.border = '';
+            alertMonth.innerText = '';
+            h1Month.style.color = '';
+
+            yearInput.style.border = '';
+            alertYear.innerText = '';
+            h1Year.style.color = '';
+
+            resultYear.innerText = resYear;
+            resultMonth.innerText = resMonth;
+            resultDay.innerText = resDay;
                 
         }
     }
