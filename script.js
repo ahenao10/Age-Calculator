@@ -157,7 +157,9 @@ document.querySelector('.arrow').addEventListener('click', () => {
             yearInput.style.border = '1px solid red';
             h1Year.style.color = 'red';
 
-        } else if (!Number.isInteger(Number(monthInput.value))){
+        }
+        
+        if (!Number.isInteger(Number(monthInput.value))){
 
             correctMonth = false;
             monthInput.style.border = '1px solid red';
@@ -169,7 +171,9 @@ document.querySelector('.arrow').addEventListener('click', () => {
             yearInput.style.border = '1px solid red';
             h1Year.style.color = 'red';
 
-        } else if (!Number.isInteger(Number(yearInput.value))){
+        } 
+        
+        if (!Number.isInteger(Number(yearInput.value))){
 
             correctYear = false;
             yearInput.style.border = '1px solid red';
