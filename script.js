@@ -52,25 +52,116 @@ document.querySelector('.arrow').addEventListener('click', () => {
         let resMonth = actualMonth - monthValue;
         let resDay = actualDay - dayValue;
 
-        if(dayValue > daysInMonth() || dayValue < 0){
-        
+        if (Number.isInteger(Number(dayInput.value)) && Number.isInteger(Number(monthInput.value)) && Number.isInteger(Number(yearInput.value))) {
+            if(dayValue > daysInMonth() || dayValue < 0){
+            
+                correctDay = false;
+                dayInput.style.border = '1px solid red';
+                alertDay.innerText = 'Must be a valid day';
+                alertDay.style.color = 'red';
+                h1Day.style.color = 'red';
+                monthInput.style.border = '1px solid red';
+                h1Month.style.color = 'red';
+                yearInput.style.border = '1px solid red';
+                h1Year.style.color = 'red';
+            
+            };
+            
+            if (monthValue > 12 || monthValue < 0) {
+
+                correctMonth = false;
+                monthInput.style.border = '1px solid red';
+                alertMonth.innerText = 'Must be a valid month';
+                alertMonth.style.color = 'red';
+                h1Month.style.color = 'red';
+                dayInput.style.border = '1px solid red';
+                h1Day.style.color = 'red';
+                yearInput.style.border = '1px solid red';
+                h1Year.style.color = 'red';
+
+            };
+
+            if (yearValue > actualYear || yearValue < 0) {
+                
+                correctYear = false;
+                yearInput.style.border = '1px solid red';
+                alertYear.innerText = 'Must be a valid year';
+                alertYear.style.color = 'red';
+                h1Year.style.color = 'red';
+                dayInput.style.border = '1px solid red';
+                h1Day.style.color = 'red';
+                monthInput.style.border = '1px solid red';
+                h1Month.style.color = 'red';
+
+            };
+
+            if (dateToCompare > actualDate) {
+
+                correctDay = false;
+                dayInput.style.border = '1px solid red';
+                alertDay.innerText = 'Must be a valid date';
+                alertDay.style.color = 'red';
+                h1Day.style.color = 'red';
+
+                correctMonth = false;
+                monthInput.style.border = '1px solid red';
+                alertMonth.innerText = 'Must be a valid date';
+                alertMonth.style.color = 'red';
+                h1Month.style.color = 'red';
+
+                correctYear = false;
+                yearInput.style.border = '1px solid red';
+                alertYear.innerText = 'Must be a valid date';
+                alertYear.style.color = 'red';
+                h1Year.style.color = 'red';                        
+            };
+            
+            if (correctDay && correctMonth && correctYear && dateToCompare < actualDate){
+
+                if (resDay < 0) {
+                    resDay = daysInMonth() + Number(resDay);
+                    resMonth--;
+                }
+
+                if (resMonth < 0) {
+                    resMonth += 12;
+                    resYear--;
+                }
+
+                dayInput.style.border = '';
+                alertDay.innerText = '';
+                h1Day.style.color = '';
+
+                monthInput.style.border = '';
+                alertMonth.innerText = '';
+                h1Month.style.color = '';
+
+                yearInput.style.border = '';
+                alertYear.innerText = '';
+                h1Year.style.color = '';
+
+                resultYear.innerText = resYear;
+                resultMonth.innerText = resMonth;
+                resultDay.innerText = resDay;
+                    
+            }
+        } else if (!Number.isInteger(Number(dayInput.value))){
+            
             correctDay = false;
             dayInput.style.border = '1px solid red';
-            alertDay.innerText = 'Must be a valid day';
+            alertDay.innerText = 'Must be a integer number';
             alertDay.style.color = 'red';
             h1Day.style.color = 'red';
             monthInput.style.border = '1px solid red';
             h1Month.style.color = 'red';
             yearInput.style.border = '1px solid red';
             h1Year.style.color = 'red';
-        
-        };
-        
-        if (monthValue > 12 || monthValue < 0) {
+
+        } else if (!Number.isInteger(Number(monthInput.value))){
 
             correctMonth = false;
             monthInput.style.border = '1px solid red';
-            alertMonth.innerText = 'Must be a valid month';
+            alertMonth.innerText = 'Must be a integer number';
             alertMonth.style.color = 'red';
             h1Month.style.color = 'red';
             dayInput.style.border = '1px solid red';
@@ -78,10 +169,8 @@ document.querySelector('.arrow').addEventListener('click', () => {
             yearInput.style.border = '1px solid red';
             h1Year.style.color = 'red';
 
-        };
+        } else if (!Number.isInteger(Number(yearInput.value))){
 
-        if (yearValue > actualYear || yearValue < 0) {
-            
             correctYear = false;
             yearInput.style.border = '1px solid red';
             alertYear.innerText = 'Must be a valid year';
@@ -92,57 +181,6 @@ document.querySelector('.arrow').addEventListener('click', () => {
             monthInput.style.border = '1px solid red';
             h1Month.style.color = 'red';
 
-        };
-
-        if (dateToCompare > actualDate) {
-
-            correctDay = false;
-            dayInput.style.border = '1px solid red';
-            alertDay.innerText = 'Must be a valid date';
-            alertDay.style.color = 'red';
-            h1Day.style.color = 'red';
-
-            correctMonth = false;
-            monthInput.style.border = '1px solid red';
-            alertMonth.innerText = 'Must be a valid date';
-            alertMonth.style.color = 'red';
-            h1Month.style.color = 'red';
-
-            correctYear = false;
-            yearInput.style.border = '1px solid red';
-            alertYear.innerText = 'Must be a valid date';
-            alertYear.style.color = 'red';
-            h1Year.style.color = 'red';                        
-        };
-        
-        if (correctDay && correctMonth && correctYear && dateToCompare < actualDate){
-
-            if (resDay < 0) {
-                resDay = daysInMonth() + Number(resDay);
-                resMonth--;
-            }
-
-            if (resMonth < 0) {
-                resMonth += 12;
-                resYear--;
-            }
-
-            dayInput.style.border = '';
-            alertDay.innerText = '';
-            h1Day.style.color = '';
-
-            monthInput.style.border = '';
-            alertMonth.innerText = '';
-            h1Month.style.color = '';
-
-            yearInput.style.border = '';
-            alertYear.innerText = '';
-            h1Year.style.color = '';
-
-            resultYear.innerText = resYear;
-            resultMonth.innerText = resMonth;
-            resultDay.innerText = resDay;
-                
         }
     }
 

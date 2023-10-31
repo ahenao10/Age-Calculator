@@ -182,4 +182,8 @@ form {
     .values-age {
         font-size: 56px;
     }
+
+    .alert {
+        font-size: 10px;
+    }
 }
